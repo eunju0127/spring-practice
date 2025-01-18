@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepositoty extends JpaRepository<UserEntity, String> {
+public interface UserRepository extends JpaRepository<UserEntity, String> {
     List<UserEntity> findByIsDeletedFalse();
 
     Optional<UserEntity> findByIdAndIsDeletedFalse(String id);
