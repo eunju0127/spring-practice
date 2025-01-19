@@ -21,5 +21,5 @@ public class BaseDto {
     private LocalDateTime modifyDateTime;
 
     private Boolean isDeleted = false;
-
+ 
 }

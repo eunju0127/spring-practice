@@ -33,5 +33,19 @@ public class UserEntity extends BaseEntity {
     @Column(length = 50, nullable = false)
     @Comment("사용자명")
     private String name;
+
+    @Column(nullable = false)
+    private Boolean isDeleted = false;
+
+
+    public void delete() {
+        this.isDeleted = true;
+    }
+
+    public void update(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
 }
 

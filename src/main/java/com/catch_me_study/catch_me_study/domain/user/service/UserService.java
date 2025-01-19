@@ -40,6 +40,20 @@ public class UserService {
     }
 
     public UserDto updateUser(UserDto userDto) {
-        UserEntity userEntity = findById(userDto.getId())
+        UserEntity userEntity = findById(userDto.getId());
+        userEntity.update(userDto.getEmail(), userDto.getPassword(), userDto.getName());
+
+        userRepository.save(userEntity);
+
+        return userMapper.toDto(userEntity);
+    }
+
+    public String deleteUserById(String id) {
+        UserEntity userEntity = findById(id);
+        userEntity.delete();
+
+        userRepository.save(userEntity);
+
+        return userEntity.getId();
     }
 }
