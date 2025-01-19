@@ -25,6 +25,10 @@ public class UserDto extends BaseDto {
     private String password;
 
     @NotBlank
+    @Size(max = 80)
+    private String confirmPassword;
+
+    @NotBlank
     @Size(max = 50)
     private String name;
 }
