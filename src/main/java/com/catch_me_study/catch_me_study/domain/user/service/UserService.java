@@ -35,7 +35,11 @@ public class UserService {
     }
 
     public UserDto createUser(UserDto userDto) {
-        UserEntity userEntity = userMapper.toEntity(userDto);
+        UserEntity userEntity = UserEntity.builder()
+                .email(userDto.getEmail())
+                .password(userDto.getPassword())
+                .name(userDto.getName())
+                .build();
 
         userRepository.save(userEntity);
         return userMapper.toDto(userEntity);
