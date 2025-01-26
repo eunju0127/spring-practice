@@ -41,8 +41,7 @@ public class UserEntity extends BaseEntity {
         this.isDeleted = true;
     }
 
-    public void update(String email, String password, String name) {
-        this.email = email;
+    public void update(String password, String name) {
         this.password = password;
         this.name = name;
     }

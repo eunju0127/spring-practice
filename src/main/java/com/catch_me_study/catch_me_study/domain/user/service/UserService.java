@@ -5,6 +5,7 @@ import com.catch_me_study.catch_me_study.domain.user.entity.UserEntity;
 import com.catch_me_study.catch_me_study.domain.user.mapper.UserMapper;
 import com.catch_me_study.catch_me_study.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,22 +35,15 @@ public class UserService {
     }
 
     public UserDto createUser(UserDto userDto) {
-        if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
-        }
         UserEntity userEntity = userMapper.toEntity(userDto);
+
         userRepository.save(userEntity);
         return userMapper.toDto(userEntity);
     }
 
     public UserDto updateUser(UserDto userDto) {
         UserEntity userEntity = findById(userDto.getId());
-
-        if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
-        }
-
-        userEntity.update(userDto.getEmail(), userDto.getPassword(), userDto.getName());
+        userEntity.update(userDto.getPassword(), userDto.getName());
 
         userRepository.save(userEntity);
 
