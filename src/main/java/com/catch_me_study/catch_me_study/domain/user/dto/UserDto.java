@@ -29,15 +29,15 @@ public class UserDto extends BaseDto {
     @Size(max = 80)
     private String confirmPassword;
 
+    @NotBlank
+    @Size(max = 50)
+    private String name;
+
     @AssertTrue(message = "비밀번호가 일치하지 않습니다.")
-    public boolean isPasswordDoubleChecked() {
+    public boolean isPasswordConfirmed() {
         if (password != null && confirmPassword != null) {
             return password.equals(confirmPassword);
         }
         return false;
     }
-
-    @NotBlank
-    @Size(max = 50)
-    private String name;
 }

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "user")
@@ -15,8 +16,10 @@ import org.hibernate.annotations.Comment;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity extends BaseEntity {
+
     @Id
     @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     @Column(nullable = false, insertable = false, updatable = false)
     @Comment("기본키 UUID")
     private String id;

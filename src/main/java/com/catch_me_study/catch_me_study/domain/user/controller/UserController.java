@@ -4,7 +4,6 @@ import com.catch_me_study.catch_me_study.domain.user.dto.UserDto;
 import com.catch_me_study.catch_me_study.domain.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.BadRequestException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

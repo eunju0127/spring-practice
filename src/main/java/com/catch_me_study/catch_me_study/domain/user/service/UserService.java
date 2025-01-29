@@ -5,7 +5,6 @@ import com.catch_me_study.catch_me_study.domain.user.entity.UserEntity;
 import com.catch_me_study.catch_me_study.domain.user.mapper.UserMapper;
 import com.catch_me_study.catch_me_study.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
